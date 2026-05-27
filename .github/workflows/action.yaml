@@ -23,13 +23,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build -x test
       # TODO: Run backend tests in the pipeline
 
       - name: run Backend test
         run: ./gradlew test
         env:
-          MY_SECRET_KEY : ${{ secrets.MY_SECRET_KEY }}
+          MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
 
       # TODO: Run the Jacoco report in the pipeline (Jacoco already exists)
 
